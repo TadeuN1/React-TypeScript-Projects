@@ -1,8 +1,8 @@
-import { useState, useEffect } from "react"
+import { useState, useEffect } from "react";
 import axios from "axios";
+import PostForm from "./PostForm";
 
-
-const AxiosPosts = () => {
+const PostManager = () => {
 
   const [ posts, setPosts] = useState([]);
   const [ error, setError] = useState("")
@@ -15,7 +15,7 @@ const AxiosPosts = () => {
         const response = await axios.get("https://jsonplaceholder.typicode.com/posts")
         
 
-        setPosts(response.data)
+        setPosts(response.data.slice(0, 5))
 
       } catch (error) {
           setError(error.message)
@@ -25,19 +25,20 @@ const AxiosPosts = () => {
     fetchPosts();
   }, [])
 
+
   return (
     <div>
-      <h1> Posts (Fetch API)</h1>
-      {error ? (<p> Erro: {error}</p>) : (
-        posts.map((post) => (
+        <h2> Gerenciar Posts </h2>
+        <PostForm />
+        {posts.map((post) => (
           <div key={post.id}>
             <h2>{post.title}</h2>
-            <p> {post.body}</p>  
+            <p> {post.body}</p>
+            <button> Editar </button>
            </div>
-        ))
-      )}
+        ))}
     </div>
-  )
-}
+  );
+};
 
-export default AxiosPosts
+export default PostManager
