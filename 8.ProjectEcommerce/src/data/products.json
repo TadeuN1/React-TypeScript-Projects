@@ -1,0 +1,34 @@
+[
+    {
+        "id": 1,
+        "name": "Relógio Elegante",
+        "price": 50.99,
+        "image": "https://imgmarketplace.lojasrenner.com.br/20001/4658/7010704592686/7510709460898/1.jpeg"
+    },{
+        "id": 2,
+        "name": "Câmera Vintage",
+        "price": 85.59,
+        "image": "https://down-br.img.susercontent.com/file/07a6a257a6ce441778961b9939341ea0"
+    },{
+        "id": 3,
+        "name": "Fones de Ouvido",
+        "price": 35.99,
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQcu4rP3WRcNaXm6MBEgXKgNxtmoHM5XM6xJA&s"
+    },{
+        "id": 4,
+        "name": "Tênis de Corrida",
+        "price": 120.00,
+        "image": "https://lojaviego.com.br/cdn/shop/files/Tenis_de_Corrida_Masculino_Ultra_Respiravel_Impact_7_800x.jpg?v=1718994784"
+    },{
+        "id": 5,
+        "name": "Smartphone",
+        "price": 299.99,
+        "image": "https://t2.tudocdn.net/720005?w=824&h=494"
+    },{
+        "id": 6,
+        "name": "Livro de aventura",
+        "price": 19.99,
+        "image": "https://recreio.uol.com.br/images/original/2020/04/09/livros-de-aventura-que-todo-fa-do-genero-deveria-conhecer-1221621.jpg"
+    }
+
+]
