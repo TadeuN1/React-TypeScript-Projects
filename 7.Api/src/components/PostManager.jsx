@@ -15,8 +15,13 @@ const PostManager = () => {
       setPosts((currentPosts) => [post, ...currentPosts])
     } else if (operation === "update"){
       setPosts((currentPosts) => currentPosts.map((p) => p.id === post.id ? post: p))
-      setIsEditing(false)
+    } else if (operation === "delete") {
+      setPosts((currentPosts) => 
+        currentPosts.filter((p) => p.id !== post.id))
+      setSelectedPost(null)
     }
+
+    setIsEditing(false)
   }
 
   useEffect(() => {

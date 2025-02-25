@@ -34,8 +34,21 @@ const PostForm = ( {post, onSuccess}) => {
         } catch (error) {
           console.log("Erro ao enviar postagem: ", error)
         }
-
     }
+
+
+    const handleDelete =  async () => {
+      try {
+        await axios.delete(`https://jsonplaceholder.typicode.com/posts/${post.id}`)
+        onSuccess(post, "delete");
+
+        setTitle("");
+        setBody("");
+      } catch (error) {
+        console.log("Erro ao deletar postagem: ", error)
+      }
+    }
+
   return (
     <form onSubmit={handleSubmit}>
         <div>
@@ -51,6 +64,9 @@ const PostForm = ( {post, onSuccess}) => {
             placeholder="Digite o conteúdo"></textarea>
         </div>
         <button type="submit"> Enviar </button>
+        {post && (
+          <button type="button" onClick={handleDelete}> Excluir </button>
+        )}
     </form>
   )
 }
