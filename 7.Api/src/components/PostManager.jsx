@@ -7,6 +7,18 @@ const PostManager = () => {
   const [ posts, setPosts] = useState([]);
   const [ error, setError] = useState("")
 
+  const [selectedPost, setSelectedPost] = useState(null);
+  const [isEditing, setIsEditing] = useState(false)
+
+  const handleSuccess = (post, operation) => {
+    if(operation === "add"){
+      setPosts((currentPosts) => [post, ...currentPosts])
+    } else if (operation === "update"){
+      setPosts((currentPosts) => currentPosts.map((p) => p.id === post.id ? post: p))
+      setIsEditing(false)
+    }
+  }
+
   useEffect(() => {
 
     const fetchPosts = async () => {
@@ -25,16 +37,26 @@ const PostManager = () => {
     fetchPosts();
   }, [])
 
+  const handleEdit = (post) => {
+    setSelectedPost(post);
+    setIsEditing(true)
+  }
+
+  const handleCancelEdit = (post) => {
+    setSelectedPost(null);
+    setIsEditing(false)
+  }
 
   return (
     <div>
         <h2> Gerenciar Posts </h2>
-        <PostForm />
+        <PostForm post={ isEditing ? selectedPost : null} onSuccess={handleSuccess}/>
+        {isEditing && <button onClick={handleCancelEdit}> Cancelar edição </button>}
         {posts.map((post) => (
           <div key={post.id}>
             <h2>{post.title}</h2>
             <p> {post.body}</p>
-            <button> Editar </button>
+            <button onClick={() => handleEdit(post)}> Editar </button>
            </div>
         ))}
     </div>
