@@ -1,7 +1,12 @@
-import React from 'react'
+import bgImage from '../assets/bg-2.jpg'
+import ResultadoChurrasco from '../components/ResultadoChurrasco'
 
 const Resultado = () => {
-  return <div className='page-container'>Resultado</div>
+  return <div style={{ backgroundImage: `url(${bgImage})` }} className='page-container'>
+    <h1> Resultado do churrasco</h1>
+    <ResultadoChurrasco />
+
+  </div>
   
 }
 
